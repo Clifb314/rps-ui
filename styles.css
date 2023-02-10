@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    min-height: 100vh;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    font-size: 26px;
+    color: blue;
+}
+
+h2 {
+    font-size: 16px;
+    color: black;
+    display: flex;
+}
+
+.player {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.player:hover {
+    color: blue;
+    background-color: white;
+    border: 2px solid blue;
+}
+
+.player:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+p {
+    color: red;
+    background: black;
+    display: flex;
+    font-size: 24px;
+}

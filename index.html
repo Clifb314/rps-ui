@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Play Rock, Paper, Scissors!</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <h1 class="header">Let's Play!</h1>
+    <br>
+    <br>
+    <h2>Make your selection</h2>
+    <br>
+    <div class="selection">
+        <button type="button" class="player" onclick="play('rock')">Rock</button>
+        <button type="button" class="player" onclick="play('paper')">Paper</button>
+        <button type="button" class="player" onclick="play('scissors')">Scissors</button>
+    </div>
+    <h2>CPU picked:</h2>
+    <p id="cpusel"></p>
+    <br>
+    <h2>You picked:</h2>
+    <p id="playsel"></p>
+    <br>
+    <h2>Results:</h2>
+    <p id="winner"></p>
+
+    <script type="text/javascript">
+
+        function play(selection) {
+            /** Generate CPU selection **/
+            let cpu = Math.floor(Math.random() * 3);
+
+            let cpus;
+            if (cpu == 1) {
+                cpus = "rock";
+            }
+            else if (cpu == 2) {
+                cpus = "paper";
+            }
+            else {
+                cpus = "scissors";
+            }
+            /** output cpu selection and player selction to page **/
+            document.getElementById("cpusel").innerHTML = cpus;
+            document.getElementById("playsel").innerHTML = selection;
+
+            /** If statements for 3 win conditions, then an else to say you lost **/
+            if (selection == cpus) {
+                document.getElementById("winner").innerHTML = `It's a tie!`;
+                return;
+            }
+            else if (selection == "rock" && cpus == "scissors") {
+                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                return;
+            }
+            else if (selection == "paper" && cpus == "rock") {
+                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                return;
+            }
+            else if (selection == "scissors" && cpus == "paper") {
+                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                return;
+            }
+            else {
+                document.getElementById("winner").innerHTML = `You lose! ${cpus} beats ${selection}`;
+                return;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
