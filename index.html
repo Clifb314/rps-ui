@@ -19,9 +19,9 @@
     <h2>Make your selection</h2>
     <br>
     <div class="selection">
-        <button type="button" class="player" onclick="play('rock')">Rock</button>
-        <button type="button" class="player" onclick="play('paper')">Paper</button>
-        <button type="button" class="player" onclick="play('scissors')">Scissors</button>
+        <button type="button" class="rock">Rock</button>
+        <button type="button" class="paper">Paper</button>
+        <button type="button" class="scissors">Scissors</button>
     </div>
     <h2>CPU picked:</h2>
     <p id="cpusel"></p>
@@ -33,6 +33,16 @@
     <p id="winner"></p>
 
     <script type="text/javascript">
+
+        let btn = document.querySelectorAll('button');
+
+        btn.forEach(press, () => {
+            const selection = press.getAttribute('class');
+            press.addEventListener('click', play(selection))
+        })
+
+
+
 
         function play(selection) {
             /** Generate CPU selection **/
