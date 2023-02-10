@@ -41,12 +41,16 @@
             press.addEventListener('click', play(selection))
         })
 
-
+        /** function to display winner **/
+        function displayWinner(player, winner, loser) {
+            const scoreBoard = document.getElementById("winner");
+            scoreBoard.textContent = `${player} won! ${winner} beats ${loser}`
+        }
 
 
         function play(selection) {
             /** Generate CPU selection **/
-            let cpu = Math.floor(Math.random() * 3);
+            let cpu = Math.floor(Math.random() * 2);
 
             let cpus;
             if (cpu == 1) {
@@ -59,8 +63,8 @@
                 cpus = "scissors";
             }
             /** output cpu selection and player selction to page **/
-            document.getElementById("cpusel").innerHTML = cpus;
-            document.getElementById("playsel").innerHTML = selection;
+            document.getElementById("cpusel").textContent = cpus;
+            document.getElementById("playsel").textContent = selection;
 
             /** If statements for 3 win conditions, then an else to say you lost **/
             if (selection == cpus) {
@@ -68,19 +72,19 @@
                 return;
             }
             else if (selection == "rock" && cpus == "scissors") {
-                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                displayWinner(You, selection, cpus);
                 return;
             }
             else if (selection == "paper" && cpus == "rock") {
-                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                displayWinner(You, selection, cpus);
                 return;
             }
             else if (selection == "scissors" && cpus == "paper") {
-                document.getElementById("winner").innerHTML = `You win! ${selection} beats ${cpus}`;
+                displayWinner(You, selection, cpus);
                 return;
             }
             else {
-                document.getElementById("winner").innerHTML = `You lose! ${cpus} beats ${selection}`;
+                displayWinner("The CPU", cpus, selection);
                 return;
             }
         }
