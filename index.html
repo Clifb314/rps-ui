@@ -36,10 +36,9 @@
 
         let btn = document.querySelectorAll('button');
 
-        btn.forEach(press, () => {
-            const selection = press.getAttribute('class');
-            press.addEventListener('click', play(selection))
-        })
+        btn.forEach(press => {
+            press.addEventListener('click', () => {play(press.getAttribute('class'))})})
+        
 
         /** function to display winner **/
         function displayWinner(player, winner, loser) {
@@ -68,19 +67,19 @@
 
             /** If statements for 3 win conditions, then an else to say you lost **/
             if (selection == cpus) {
-                document.getElementById("winner").innerHTML = `It's a tie!`;
+                document.getElementById("winner").textContent = `It's a tie!`;
                 return;
             }
             else if (selection == "rock" && cpus == "scissors") {
-                displayWinner(You, selection, cpus);
+                displayWinner("You", selection, cpus);
                 return;
             }
             else if (selection == "paper" && cpus == "rock") {
-                displayWinner(You, selection, cpus);
+                displayWinner("You", selection, cpus);
                 return;
             }
             else if (selection == "scissors" && cpus == "paper") {
-                displayWinner(You, selection, cpus);
+                displayWinner("You", selection, cpus);
                 return;
             }
             else {
