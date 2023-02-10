@@ -19,7 +19,7 @@ h2 {
     display: flex;
 }
 
-.player {
+button {
     background-color: blue;
     border: none;
     color: white;
@@ -33,13 +33,13 @@ h2 {
     transition-duration: 0.4s;
 }
 
-.player:hover {
+button:hover {
     color: blue;
     background-color: white;
     border: 2px solid blue;
 }
 
-.player:active {
+button:active {
     background-color: white;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
